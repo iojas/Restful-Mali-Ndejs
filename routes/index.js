@@ -5,7 +5,7 @@ var mysql = require('mysql');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('ojas kale');
+  res.render('index');
 });
 
 router.get('/applicants', function(req, res, next) {
