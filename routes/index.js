@@ -19,13 +19,19 @@ router.get('/applicants', function(req, res, next) {
   //var obj=[{name:'ojas'}];
   var ret = [];
   connection.connect(function(err) {
-    if (err) throw err
+    if (err) {
+      res.send(err);
+      throw err
+    }
 
     console.log('You are now connected...');
 
     connection.query('SELECT * FROM applicant', function(err, results, fields) {
 
-      if (err) throw err
+      if (err) {
+        res.send(err);
+        throw err
+      }
       var resApp = [];
       for(var a=0;a<results.length;a++){
         //console.log(JSON.stringify(results[a]))
